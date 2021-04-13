@@ -1,66 +1,11 @@
 #HANGMAN GAME
 import random
+from hangman_words import word_list
+from hangman_art import stages,logo
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-word_list=["apple","banana","orange","bikaner","oesaphagus","railway"]
+# word_list=["apple","banana","orange","bikaner","oesaphagus","railway"]
 chosen_word=random.choice(word_list)
-# print(chosen_word)
+print(logo)
 display=[]
 for letter in chosen_word:
     display+="_"
@@ -81,10 +26,12 @@ while  not end_of_game:
         print(stages[lives])
         if lives==0:
             print("You have run out of lives.You Lose.")
+            print("The word was "+chosen_word+".")
             end_of_game=True
 
     print(display)  
     if "_" not in display:
         end_of_game=True
         print("You Win")
-        print("The word was "+("".join(display))+".")
+        print("The word was "+chosen_word+".")
+        
