@@ -15,13 +15,15 @@ end_of_game=False
 lives=6
 while  not end_of_game:
     guess=input("Guess your word : ").lower()
-
+    if guess in display:
+        print(f"You have already guessed the letter '{guess}'.Try different letter.")
     for position in range(len(chosen_word)):
         letter=chosen_word[position]
         if letter == guess:
             display[position]=letter
 
     if guess not in chosen_word:
+        print(f"You guessed {guess}, that's not in the word.You lose a life.")
         lives-=1
         print(stages[lives])
         if lives==0:
